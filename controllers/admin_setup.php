@@ -137,7 +137,8 @@ class Admin_setup extends Admin_Controller {
 		// If you can't admin snippets, you can't create them
 		role_or_die('snippets', 'admin_snippets');
 
- 		$this->template->append_metadata(js('new_snippet.js', 'snippets'));
+  		$this->template->append_metadata(js('jquery.slugify.js', 'snippets'));
+		$this->template->append_metadata(js('new_snippet.js', 'snippets'));
 
 		// -------------------------------------
 		// Validation & Setup
@@ -193,6 +194,7 @@ class Admin_setup extends Admin_Controller {
 	 */
 	public function edit_snippet($snippet_id = null)
 	{		
+  		$this->template->append_metadata(js('jquery.slugify.js', 'snippets'));
  		$this->template->append_metadata(js('new_snippet.js', 'snippets'));
 
 		// -------------------------------------
